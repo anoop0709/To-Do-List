@@ -1,0 +1,109 @@
+body{
+    background-color: #082032;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0 auto;
+    
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background: #2C394B;
+    width: 800px;
+    height: 800px;
+    margin: auto;
+    border-radius: 20px;
+    margin-top: 60px;
+    padding-top: 0px;
+
+}
+.head-section h1{
+    color: lightgrey;
+}
+.head-section input{
+    padding-left: 40px;
+    border-radius: 20px;
+    background:#334756 ;
+    border:none;
+    color: lightgrey;
+    width: 600px;
+    height: 60px;
+    font-size: 20px;
+   
+  
+}
+.head-section h2{
+    color: lightgrey;
+}
+#plus{
+    padding: 16px;
+    border-radius: 10px;
+    background:#FF4C29 ;
+    border:none;
+    color: lightgrey;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.list{
+    height: 500px;
+    overflow-y:scroll;
+    width: 100%;
+    
+}
+.list ul{
+    padding:0;
+    margin: 30px;
+    position: relative;
+    max-width: 100%;
+
+  
+}
+
+ .list-content{
+    list-style: none;
+    background: #334756;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display:inline-flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    color: lightgrey;
+    font-size: 20px;
+    position:relative;
+    word-wrap: break-word;
+    
+}
+
+ .list-content .delete{
+    background:#FF4C29 ;
+    border-radius: 20px;
+    padding: 14px;
+    font-size: 15px;
+    color: lightgrey;
+    border:none;
+    cursor: pointer;
+    position: relative;
+    
+   
+
+  
+}
+
+ footer{
+     margin: 20px;
+    
+ }
+ footer #clearAll{
+     padding: 14px;
+     border: none;
+     background: #FF4C29;
+     border-radius: 20px;
+     font-size: 15px;
+     color: lightgrey;
+
+ }
+
