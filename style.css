@@ -16,6 +16,7 @@ body{
     border-radius: 20px;
     margin-top: 60px;
     padding-top: 0px;
+    font-family: 'Courier New', Courier, monospace;
 
 }
 .head-section h1{
@@ -63,30 +64,34 @@ body{
 }
 
  .list-content{
-    list-style: none;
     background: #334756;
     border-radius: 20px;
     margin-bottom: 20px;
-    display:inline-flex;
+    display:flex;
     justify-content: space-between;
-    padding: 10px;
+    padding: 20px;
     align-items: center;
     color: lightgrey;
     font-size: 20px;
     position:relative;
     word-wrap: break-word;
+    max-width: 100%;
+    list-style-type: decimal;
+
     
 }
 
  .list-content .delete{
     background:#FF4C29 ;
     border-radius: 20px;
-    padding: 14px;
-    font-size: 15px;
+    padding: 12px;
+    font-size: 14px;
     color: lightgrey;
     border:none;
     cursor: pointer;
-    position: relative;
+    position: absolute;
+    right: 10px;
+    
     
    
 
