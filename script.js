@@ -8,9 +8,10 @@ addButton.addEventListener('click',(e) => {
     const task = inputVal.value;  
     if(!task){
         alert("please enter your to do list");
-        //addButton.disabled = true;
+        addButton.disabled = true;
         return;
     } else{
+        addButton.disabled = false;
     const tasklist = document.createElement('li');
     tasklist.classList.add("list-content"); 
     document.getElementById("content").append(tasklist);
