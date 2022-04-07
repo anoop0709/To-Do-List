@@ -17,7 +17,8 @@
         setTodoList();
         getTodoList();
         }
-       
+        inputVal.value = "";
+       inputVal.setAttribute("placeholder","please add more");
         
     });
    
@@ -59,21 +60,13 @@
             todoListArray.splice(index,1);
             localStorage.setItem("Todolist",JSON.stringify(todoListArray));
             getTodoList();
+
                  
         
             
         });
-        allClearBtn.addEventListener('click', () => {
-          localStorage.removeItem("Todolist");
-          todoListArray =JSON.parse(localStorage.getItem("Todolist"));
-          buildLi();
-         
-
-
-         
        
     });
-    });
-        
+    
     }
     getTodoList();

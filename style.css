@@ -44,6 +44,8 @@ body::after{
 }
 .head-section h1{
     color: lightgrey;
+    text-decoration: underline;
+    padding-bottom: 5px;
 }
 .head-section input{
     padding-left: 40px;
@@ -59,6 +61,8 @@ body::after{
 }
 .head-section h2{
     color: lightgrey;
+    text-decoration: underline;
+    padding-bottom: 5px;
 }
 #plus{
     padding: 16px;
@@ -126,7 +130,7 @@ body::after{
      margin: 20px;
     
  }
- footer #clearAll{
+ /*footer #clearAll{
      padding: 14px;
      border: none;
      background: #FF4C29;
@@ -134,7 +138,7 @@ body::after{
      font-size: 15px;
      color: lightgrey;
 
- }
+ }*/
 
 @media screen and (max-width:390px) {
 
