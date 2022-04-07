@@ -141,10 +141,14 @@ body::after{
     body{
         background-color: #082032;
         font-family: 'Courier New', Courier, monospace;
-        margin: 0 auto;
-        
-        
-    }
+
+     }
+     body::after{
+         display: none;
+     }
+     body::before{
+         display:none;
+     }
     .container
     {
     display: flex;
@@ -152,11 +156,9 @@ body::after{
     justify-content: center;
     text-align: center;
     background: #2C394B;
-    width: 100%;
-    height: auto;
-    margin: auto;
+    max-width: 90%;
     border-radius: 20px;
-    margin-top: 60px;
+    margin-top: 20px;
     padding-top: 0px;
     font-family: 'Courier New', Courier, monospace;
 
@@ -167,11 +169,31 @@ body::after{
     background:#334756 ;
     border:none;
     color: lightgrey;
-    width: 100%;
+    max-width: 60%;
     height: 60px;
-    font-size: 20px;
+    font-size: 16px;
    
   
 }
+.list-content{
+    background: #334756;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    display:flex;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
+    color: lightgrey;
+    font-size: 16px;
+    position:relative;
+    word-wrap: break-word;
+    max-width: 100%;
+    list-style-type: decimal;
+
+
+    
+}
+
+
     
 }
