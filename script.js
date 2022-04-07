@@ -1,37 +1,79 @@
-window.addEventListener('load',() => {
-    const addButton = document.querySelector('#plus');
 
-addButton.addEventListener('click',(e) => {
-    e.preventDefault();
-
-    const inputVal = document.querySelector('#input-section');
-    const task = inputVal.value;  
-    if(!task){
-        alert("please enter your to do list");
-        addButton.disabled = true;
-        return;
-    } else{
-        addButton.disabled = false;
-    const tasklist = document.createElement('li');
-    tasklist.classList.add("list-content"); 
-    document.getElementById("content").append(tasklist);
-    tasklist.innerText = task;
-    inputVal.value = ' ';
-   
-    const del = document.createElement('button');
-    del.classList.add("delete");
-    del.innerText = 'Delete';
-    tasklist.appendChild(del);
-    del.addEventListener('click',() => {
-        document.getElementById("content").removeChild(tasklist);
+    let addButton = document.querySelector('#plus');
+    let ulContent = document.querySelector('#content');
+    let allClearBtn = document.querySelector('#clearAll');
+    let inputVal;
+    let task;
+    let todoListArray = [];
+    addButton.addEventListener('click',(e) => {
+        e.preventDefault();
+        inputVal= document.querySelector('#input-section');
+        task = inputVal.value; 
+        if(!task){
+            alert("please add a content to list");
+        }else{
+            
+        todoListArray.push(task);
+        setTodoList();
+        getTodoList();
+        }
+       
+        
     });
-
-    const delAll = document.getElementById("clearAll");
-    delAll.addEventListener('click',() => {
-        document.getElementById("content").removeChild(tasklist);
-    });
-   }
-
    
-});
-});
+    function setTodoList(){
+        if(!todoListArray){
+            alert("please add a to do");
+        }else{
+       localStorage.setItem("Todolist",JSON.stringify(todoListArray));
+    }
+}
+    function getTodoList(){
+     if(localStorage.getItem("Todolist")) {
+     todoListArray =JSON.parse(localStorage.getItem("Todolist"));
+      buildLi();
+     }
+     }
+    
+        
+
+    
+
+    function buildLi(){
+        let tasklist;
+        ulContent.textContent = " ";
+        todoListArray.forEach((item,index) => {
+       
+        tasklist = document.createElement('li');
+        tasklist.classList.add("list-content"); 
+        document.getElementById("content").append(tasklist);
+        tasklist.innerText = item;
+        
+        const del = document.createElement('button');
+        del.classList.add("delete");
+        del.innerText = 'Delete';
+        tasklist.appendChild(del);
+        del.addEventListener('click',() => {
+
+            todoListArray =JSON.parse(localStorage.getItem("Todolist"));
+            todoListArray.splice(index,1);
+            localStorage.setItem("Todolist",JSON.stringify(todoListArray));
+            getTodoList();
+                 
+        
+            
+        });
+        allClearBtn.addEventListener('click', () => {
+          localStorage.removeItem("Todolist");
+          todoListArray =JSON.parse(localStorage.getItem("Todolist"));
+          buildLi();
+         
+
+
+         
+       
+    });
+    });
+        
+    }
+    getTodoList();
