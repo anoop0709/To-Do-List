@@ -4,7 +4,9 @@
     let allClearBtn = document.querySelector('#clearAll');
     let inputVal;
     let task;
+    let tasklist;
     let todoListArray = [];
+
     addButton.addEventListener('click',(e) => {
         e.preventDefault();
         inputVal= document.querySelector('#input-section');
@@ -18,7 +20,7 @@
         getTodoList();
         }
         inputVal.value = "";
-       inputVal.setAttribute("placeholder","please add more");
+       inputVal.setAttribute("placeholder","please type your to do list");
         
     });
    
@@ -31,7 +33,7 @@
 }
     function getTodoList(){
      if(localStorage.getItem("Todolist")) {
-     todoListArray =JSON.parse(localStorage.getItem("Todolist"));
+     todoListArray = JSON.parse(localStorage.getItem("Todolist"));
       buildLi();
      }
      }
@@ -41,14 +43,18 @@
     
 
     function buildLi(){
-        let tasklist;
+        
         ulContent.textContent = " ";
         todoListArray.forEach((item,index) => {
        
         tasklist = document.createElement('li');
         tasklist.classList.add("list-content"); 
+        tasklist.setAttribute("contenteditable","false");
         document.getElementById("content").append(tasklist);
         tasklist.innerText = item;
+
+       
+        
         
         const del = document.createElement('button');
         del.classList.add("delete");
