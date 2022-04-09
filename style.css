@@ -156,6 +156,12 @@ body::after{
      margin: 20px;
     
  }
+ h3{
+     color: lightgrey;
+ }
+ h3 #todoCounter{
+     color:#FF4C29 ;
+ }
  /*footer #clearAll{
      padding: 14px;
      border: none;
