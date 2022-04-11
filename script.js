@@ -8,6 +8,8 @@
     let todoListArray = [];
     let counter = 0;
     let count = document.getElementById("todoCounter");
+    let counterLog;
+    let del;
 
     addButton.addEventListener('click',(e) => {
         e.preventDefault();
@@ -18,14 +20,14 @@
         }else{
             
         todoListArray.push(task);
+        counter++;
         setTodoList();
         getTodoList();
         }
         
     inputVal.value = "";
     inputVal.setAttribute("placeholder","please type your to do list");
-    counter++;
-    count.innerText = counter;
+   
         
     });
    
@@ -34,11 +36,15 @@
             alert("please add a to do");
         }else{
        localStorage.setItem("Todolist",JSON.stringify(todoListArray));
+       localStorage.setItem("counterlog",JSON.stringify(counter));
     }
 }
     function getTodoList(){
      if(localStorage.getItem("Todolist")) {
      todoListArray = JSON.parse(localStorage.getItem("Todolist"));
+     counter = JSON.parse(localStorage.getItem("counterlog"));
+     count.innerText = counter;
+    
       buildLi();
       
      }
@@ -59,10 +65,13 @@
         document.getElementById("content").append(tasklist);
         tasklist.innerText = item;
         
-        const del = document.createElement('button');
+        del = document.createElement('button');
         del.classList.add("delete");
         del.innerText = 'Delete';
         tasklist.appendChild(del);
+    
+    
+    
 
        
 
@@ -70,15 +79,16 @@
 
             todoListArray =JSON.parse(localStorage.getItem("Todolist"));
             todoListArray.splice(index,1);
+            counter = JSON.parse(localStorage.getItem("counterlog"));
+            counter--;
+            localStorage.setItem("counterlog",JSON.stringify(counter));
             localStorage.setItem("Todolist",JSON.stringify(todoListArray));
             getTodoList();
-            counter--;
-            count.innerText = counter;
+            
         });
-       
-       
     });
-    
-    
     }
+       
+       
+   
     getTodoList();
